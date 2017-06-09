@@ -10,17 +10,22 @@ import (
 func main() {
     flag.Parse()
     args := flag.Args()
-    if (len(args) != 2) {
+    if (len(args) != 2 || len(args) != 3) {
         fmt.Println("wrong usage.")
         return
     }
-    current := scan(args[0])
-    newS := scan(args[1])
-    for _, v := range newS {
-        if (! stringInSlice(v, current)) {
+    file0 := scan(args[0])
+    file1 := scan(args[1])
+    for _, v := range file1 {
+        if (! stringInSlice(v, file0)) {
             fmt.Println(v)
         }
     }
+    // for _, v := range file0 {
+    //     if (! stringInSlice(v, file1)) {
+    //         fmt.Println(v)
+    //     }
+    // }
 }
 
 func scan(path string) []string {
